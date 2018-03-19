@@ -35,7 +35,7 @@ public final class TlCreatePaymentService {
         return Tools.getParamValueFromList(this.serverResponse.toString(), field).equals(TRUE);
     }
 
-    public Properties getDraftRef() throws IOException, NoSuchAlgorithmException, KeyStoreException, KeyManagementException {
+    public Properties getDraftRef() throws IOException {
         this.sender = new Sender(API_URL_ADDRESS + JSON, Tools.parseObjectToJson(this.tlCreatePaymentModel));
         this.serverResponse = this.sender.sendApiRequest();
         if (this.isRequestOk(SUCCESS)) {

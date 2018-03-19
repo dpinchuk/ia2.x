@@ -26,7 +26,7 @@ public final class GetSenderPaymentInfoService {
         this.getSenderPaymentInfoModel = getSenderPaymentInfoModel;
     }
 
-    public boolean isSenderPaymentInfoTrue() throws IOException, NoSuchAlgorithmException, KeyStoreException, KeyManagementException {
+    public boolean isSenderPaymentInfoTrue() throws IOException {
         this.sender = new Sender(API_URL_ADDRESS + JSON, Tools.parseObjectToJson(this.getSenderPaymentInfoModel));
         this.serverResponse = this.sender.sendApiRequest();
         return Tools.getParamValueFromList(this.serverResponse.toString(), SUCCESS).equals(TRUE);

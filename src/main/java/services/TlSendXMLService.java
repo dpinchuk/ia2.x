@@ -6,9 +6,6 @@ import tools.Tools;
 import senders.Sender;
 
 import java.io.IOException;
-import java.security.KeyManagementException;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
 
 import static utils.Constants.*;
 
@@ -26,7 +23,7 @@ public final class TlSendXMLService {
         this.tlSendXMLModel = tlSendXMLModel;
     }
 
-    public boolean sendTlSendXMLModel() throws IOException, NoSuchAlgorithmException, KeyStoreException, KeyManagementException {
+    public boolean sendTlSendXMLModel() throws IOException {
         this.sender = new Sender(API_URL_ADDRESS + JSON, Tools.parseObjectToJson(this.tlSendXMLModel));
         this.serverResponse = this.sender.sendApiRequest();
         return Tools.getParamValueFromList(this.serverResponse.toString(), SUCCESS).equals(TRUE);

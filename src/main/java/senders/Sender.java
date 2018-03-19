@@ -13,9 +13,6 @@ import org.apache.http.util.EntityUtils;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.security.KeyManagementException;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
 
 import static org.apache.http.HttpHeaders.USER_AGENT;
 import static utils.Constants.CHARSET;

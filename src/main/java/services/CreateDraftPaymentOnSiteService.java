@@ -34,7 +34,7 @@ public final class CreateDraftPaymentOnSiteService {
         return Tools.getParamValueFromList(this.serverResponse.toString(), field).equals(TRUE);
     }
 
-    public boolean getDraftRef() throws IOException, NoSuchAlgorithmException, KeyStoreException, KeyManagementException {
+    public boolean getDraftRef() throws IOException {
         this.sender = new Sender(API_URL_ADDRESS + JSON, Tools.parseObjectToJson(this.createDraftPaymentOnSiteModel));
         this.serverResponse = this.sender.sendApiRequest();
         if (this.isRequestOk(SUCCESS)) {

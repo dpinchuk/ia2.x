@@ -35,7 +35,7 @@ public final class TlGetSidService {
         return Tools.getParamValueFromList(this.serverResponse.toString(), field).equals(TRUE);
     }
 
-    public Properties getTlGetSid() throws IOException, NoSuchAlgorithmException, KeyStoreException, KeyManagementException {
+    public Properties getTlGetSid() throws IOException {
         this.sender = new Sender(API_URL_ADDRESS + JSON, Tools.parseObjectToJson(this.tlGetSidModel));
         this.serverResponse = this.sender.sendApiRequest();
         if (this.isRequestOk(SUCCESS)) {

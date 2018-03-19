@@ -23,7 +23,7 @@ public final class TasLinkService {
         this.tasLinkModel = tasLinkModel;
     }
 
-    public int sendTasLinkRequest() throws IOException, NoSuchAlgorithmException, KeyStoreException, KeyManagementException {
+    public int sendTasLinkRequest() throws IOException {
         this.sender = new Sender(TASLINK_URL + "?pay=" + this.tasLinkModel.getSid());
         return this.sender.sendGet();
     }

@@ -28,8 +28,8 @@ public class Main {
 
     private static void paymentProcess(int process) throws IOException, NoSuchAlgorithmException, KeyStoreException, KeyManagementException {
         if (process == 0) {
-            // Выполняем последовательные оплаты от 0 до LIMIT
-            for (int i = 0; i < LIMIT; i++) {
+            // Выполняем последовательные оплаты от 0 до указанного числа
+            for (int i = 0; i < LIMIT * REQUEST_PER_SECOND; i++) {
                 RequestController requestController = new RequestController();
                 if (requestController.pay()) {
                     System.out.println("[" + count + "]" + "Payment OK!");
@@ -40,7 +40,8 @@ public class Main {
         } else {
             // Создаем pool потоков
             ExecutorService service = Executors.newFixedThreadPool(LIMIT);
-            // Потоки выполняют одновременно запросы от 0 до указанного числа. Ориентировочно - за 1 сек
+            // Потоки выполняют одновременно запросы от 0 до указанного числа.
+            // Ориентировочно - REQUEST_PER_SECOND запросов в сек.
             IntStream.range(0, LIMIT * REQUEST_PER_SECOND).forEach(i -> service.submit(new SenderMultyThreads(new RequestController())));
         }
     }

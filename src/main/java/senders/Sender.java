@@ -43,16 +43,14 @@ public final class Sender {
         this.urlAddress = urlAddress;
     }
 
-     // метод отправки POST-запроса с телом JSON
-    public JsonObject sendApiRequest() throws KeyStoreException, NoSuchAlgorithmException, KeyManagementException, IOException {
-
+    // метод отправки POST-запроса с телом JSON
+    public JsonObject sendApiRequest() throws IOException {
         this.entity = new StringEntity(this.jsonString, ContentType.APPLICATION_FORM_URLENCODED);
         this.httpClient = HttpClientBuilder.create().build();
         this.httpPost = new HttpPost(this.urlAddress);
         this.httpPost.setEntity(this.entity);
         this.httpResponse = this.httpClient.execute(this.httpPost);
         this.jsonAsString = EntityUtils.toString(this.httpResponse.getEntity(), CHARSET);
-
         return new Gson().fromJson(this.jsonAsString, JsonObject.class);
     }
 

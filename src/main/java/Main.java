@@ -11,7 +11,6 @@ import java.util.concurrent.Executors;
 import java.util.stream.IntStream;
 
 import static controllers.RequestController.count;
-import static controllers.RequestController.isCurentRequestTrue;
 import static utils.Constants.LIMIT;
 import static utils.Constants.REQUEST_PER_SECOND;
 
@@ -22,14 +21,14 @@ import static utils.Constants.REQUEST_PER_SECOND;
 public class Main {
 
     public static void main(String[] args) throws IOException, NoSuchAlgorithmException, KeyStoreException, KeyManagementException, URISyntaxException {
-        // 0 - alone payment start, other - multy thread payment start
+        // 0 - alone payment start,
+        // other - multy thread payment start
         paymentProcess(0);
-
     }
 
     private static void paymentProcess(int process) throws IOException, NoSuchAlgorithmException, KeyStoreException, KeyManagementException {
         if (process == 0) {
-            // Выполняем последовательные оплаты
+            // Выполняем последовательные оплаты от 0 до LIMIT
             for (int i = 0; i < LIMIT; i++) {
                 RequestController requestController = new RequestController();
                 if (requestController.pay()) {

@@ -25,7 +25,6 @@ public final class SenderMultyThreads implements Runnable {
     @Override
     public void run() {
         try {
-            count++;
             this.requestController.pay();
             if (isCurentRequestTrue) {
                 System.out.println("[" + count + "]" + "Payment OK!");

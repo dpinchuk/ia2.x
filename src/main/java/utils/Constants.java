@@ -11,7 +11,7 @@ public interface Constants {
 
     String API_URL_ADDRESS = "http://webclient.sb.np.ua/data/get/container/";
     String TASLINK_URL = "https://e-dev.taslink.com.ua/novaposhta_api/";
-    String JSON = "json";
+    String JSON = "json/";
     String XML = "xml/";
 
     String API_KEY = "aa61ede9b6546ed07afe09f1854054ec";
@@ -54,8 +54,10 @@ public interface Constants {
 
     String CHARSET = "UTF-8";
     int LIMIT = 30;
+    int REQUEST_PER_SECOND = 30;
 
     String SUCCESS = "success";
+    String ERROR = "false";
     String TRUE = "true";
     String SUCCESS_URL = "http://novaposhta.sb.np.ua/cardpay/Success";
     String ERROR_URL = "http://novaposhta.sb.np.ua/cardpay/Fail";

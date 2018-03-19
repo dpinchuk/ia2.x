@@ -32,7 +32,7 @@ public final class RequestController {
     public RequestController() {
     }
 
-    public void pay() throws KeyManagementException, NoSuchAlgorithmException, KeyStoreException, IOException {
+    public boolean pay() throws KeyManagementException, NoSuchAlgorithmException, KeyStoreException, IOException {
 
         // метод создания ИД [InternetDocument]
         this.internetDocumentService = new InternetDocumentService(InternetDocumentModel.getInstance(), Arrays.asList("Ref", "IntDocNumber", "CostOnSite"));
@@ -78,7 +78,7 @@ public final class RequestController {
                     }
                 }
             }
-        }
+        } return this.isCurentRequestTrue;
     }
 
 }

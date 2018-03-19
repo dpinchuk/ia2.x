@@ -24,7 +24,7 @@ public final class TlGetSidService {
     private TlGetSidModel tlGetSidModel;
     private List<String> paramList;
     private Sender sender;
-    private JsonObject serverResponse;
+    private String serverResponse;
 
     public TlGetSidService(TlGetSidModel tlGetSidModel, List<String> paramList) {
         this.tlGetSidModel = tlGetSidModel;

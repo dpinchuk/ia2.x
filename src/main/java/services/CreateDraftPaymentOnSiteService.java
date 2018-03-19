@@ -23,7 +23,7 @@ public final class CreateDraftPaymentOnSiteService {
     private CreateDraftPaymentOnSiteModel createDraftPaymentOnSiteModel;
     private List<String> paramList;
     private Sender sender;
-    private JsonObject serverResponse;
+    private String serverResponse;
 
     public CreateDraftPaymentOnSiteService(CreateDraftPaymentOnSiteModel createDraftPaymentOnSiteModel, List<String> paramList) {
         this.createDraftPaymentOnSiteModel = createDraftPaymentOnSiteModel;

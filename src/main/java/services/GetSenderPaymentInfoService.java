@@ -20,7 +20,7 @@ public final class GetSenderPaymentInfoService {
 
     private GetSenderPaymentInfoModel getSenderPaymentInfoModel;
     private Sender sender;
-    private JsonObject serverResponse;
+    private String serverResponse;
 
     public GetSenderPaymentInfoService(GetSenderPaymentInfoModel getSenderPaymentInfoModel) {
         this.getSenderPaymentInfoModel = getSenderPaymentInfoModel;

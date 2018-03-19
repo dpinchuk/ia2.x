@@ -23,26 +23,22 @@ public final class InternetDocumentService {
     private InternetDocumentModel internetDocumentModel;
     private List<String> paramList;
     private Sender sender;
-    private JsonObject serverResponse;
+    private String serverResponse;
 
     public InternetDocumentService(InternetDocumentModel internetDocumentModel, List<String> paramList) {
         this.internetDocumentModel = internetDocumentModel;
         this.paramList = paramList;
     }
 
-    private boolean isRequestOk(String field) throws IOException {
-        return Tools.getParamValueFromList(this.serverResponse.toString(), field).equals(TRUE);
-    }
-
     public boolean getInternetDocumentListProperties() throws IOException {
         this.sender = new Sender(API_URL_ADDRESS + JSON, Tools.parseObjectToJson(this.internetDocumentModel));
         this.serverResponse = this.sender.sendApiRequest();
-        if (this.isRequestOk(SUCCESS)) {
-            RequestController.properties = Tools.getPropertiesFromJSON(serverResponse.toString(), paramList);
-            return true;
-        } else {
+        if (this.serverResponse.equals(ERROR)) {
             return false;
         }
+        RequestController.properties = Tools.getPropertiesFromJSON(serverResponse.toString(), paramList);
+        return true;
+
     }
 
 }

@@ -17,7 +17,7 @@ public final class TlSendXMLService {
 
     private TlSendXMLModel tlSendXMLModel;
     private Sender sender;
-    private JsonObject serverResponse;
+    private String serverResponse;
 
     public TlSendXMLService(TlSendXMLModel tlSendXMLModel) {
         this.tlSendXMLModel = tlSendXMLModel;

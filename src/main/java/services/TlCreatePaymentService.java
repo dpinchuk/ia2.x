@@ -24,7 +24,7 @@ public final class TlCreatePaymentService {
     private TlCreatePaymentModel tlCreatePaymentModel;
     private List<String> paramList;
     private Sender sender;
-    private JsonObject serverResponse;
+    private String serverResponse;
 
     public TlCreatePaymentService(TlCreatePaymentModel tlCreatePaymentModel, List<String> paramList) {
         this.tlCreatePaymentModel = tlCreatePaymentModel;

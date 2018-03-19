@@ -79,11 +79,6 @@ public final class RequestController {
                 }
             }
         }
-//        if (this.isCurentRequestTrue) {
-//            System.out.println("Payment OK!");
-//        } else {
-//            System.out.println("Payment ERROR!");
-//        }
     }
 
 }

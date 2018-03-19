@@ -7,6 +7,9 @@ import java.security.KeyManagementException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 
+import static controllers.RequestController.count;
+import static controllers.RequestController.isCurentRequestTrue;
+
 /**
  * Class for threads realizing
  */
@@ -22,16 +25,25 @@ public final class SenderMultyThreads implements Runnable {
     @Override
     public void run() {
         try {
+            count++;
             this.requestController.pay();
-            System.out.println();
+            if (isCurentRequestTrue) {
+                System.out.println("[" + count + "]" + "Payment OK!");
+            } else {
+                System.out.println("[" + count + "]" + "Payment ERROR!");
+            }
         } catch (KeyManagementException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            System.out.println("[" + count + "]" + "Payment ERROR!");
         } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            System.out.println("[" + count + "]" + "Payment ERROR!");
         } catch (KeyStoreException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            System.out.println("[" + count + "]" + "Payment ERROR!");
         } catch (IOException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            System.out.println("[" + count + "]" + "Payment ERROR!");
         }
     }
 

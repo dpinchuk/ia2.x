@@ -26,7 +26,8 @@ public final class RequestController {
     private TlSendXMLService tlSendXMLService;
     private TasLinkService tasLinkService;
 
-    private boolean isCurentRequestTrue = false;
+    public static int count = 0;
+    public static boolean isCurentRequestTrue = false;
 
     public RequestController() {
     }
@@ -35,7 +36,7 @@ public final class RequestController {
 
         // метод создания ИД [InternetDocument]
         this.internetDocumentService = new InternetDocumentService(InternetDocumentModel.getInstance(), Arrays.asList("Ref", "IntDocNumber", "CostOnSite"));
-        if (this.internetDocumentService.getInternetDocumentListProperties_()) {
+        if (this.internetDocumentService.getInternetDocumentListProperties()) {
 
             // метод получения информации о возможности оплаты ИД [getSenderPaymentInfo]
             this.getSenderPaymentInfoService = new GetSenderPaymentInfoService(GetSenderPaymentInfoModel.getInstance(new String[]{properties.getProperty("IntDocNumber")}));
@@ -78,11 +79,11 @@ public final class RequestController {
                 }
             }
         }
-        if (this.isCurentRequestTrue) {
-            System.out.println("Payment OK!");
-        } else {
-            System.out.println("Payment ERROR!");
-        }
+//        if (this.isCurentRequestTrue) {
+//            System.out.println("Payment OK!");
+//        } else {
+//            System.out.println("Payment ERROR!");
+//        }
     }
 
 }

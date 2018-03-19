@@ -21,7 +21,7 @@ import static utils.Constants.REQUEST_PER_SECOND;
 public class Main {
 
     public static void main(String[] args) throws IOException, NoSuchAlgorithmException, KeyStoreException, KeyManagementException, URISyntaxException {
-        // 0 - alone payment start,
+        // 0 - sequential alone payment start
         // other - multy thread payment start
         paymentProcess(0);
     }
